@@ -19,8 +19,9 @@ RUN dpkg-reconfigure locales
 
 # Add bootstrapping script
 ADD bootstrap.sh /bootstrap.sh
+RUN chmod +x /bootstrap.sh
 
 # Expose standard port
 EXPOSE 8080
 
-ENTRYPOINT ["./bootstrap.sh"]
+ENTRYPOINT ["/bootstrap.sh"]

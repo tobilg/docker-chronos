@@ -9,10 +9,10 @@ and the Mesos Master too, which was registered at `zk://192.168.0.100:2181/mesos
       -e CHRONOS_MESOS_MASTER=zk://192.168.0.100:2181/mesos \
       -e CHRONOS_HOSTNAME=192.168.0.100 \
       -e CHRONOS_ZK_HOSTS=192.168.0.100:2181 \
-      -p 8081:8080 \
+      -p 8081:8081 \
       -t tobilg/chronos:latest
 
-The web frontend will then be accessible on the Docker host's port `8081`. Be aware that Marathon also uses the port `8080`, that's why it can be necessary to remap the Chronos port.
+The web frontend will then be accessible on the Docker host's port `8081`. Be aware that Marathon also uses the port `8080`, that's why the default Chronos port was remapped to 8081.
 
 ### Time
 If you want to pass-in the Docker host's time, you can add the `-v /etc/localtime:/etc/localtime:ro` parameter during startup.

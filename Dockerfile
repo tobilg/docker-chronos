@@ -1,21 +1,11 @@
-FROM tobilg/mesos:latest
+FROM java:openjdk-8u66-jre
 MAINTAINER tobilg <fb.tools.github@gmail.com>
 
-# Install lsb 
-RUN apt-get update && apt-get install -yq --no-install-recommends --force-yes lsb-core
-
-# Setup key
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF
-
-# Add the repository
-RUN echo "deb http://repos.mesosphere.io/$(lsb_release -is | tr '[:upper:]' '[:lower:]') $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/mesosphere.list
-
-# Install Chronos
-RUN apt-get update && apt-get install -yq --no-install-recommends --force-yes chronos
-
-# Add locale for Chronos (warning otherwise)
-RUN locale-gen "en_US.UTF-8"
-RUN dpkg-reconfigure locales
+# packages
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF && \
+    echo "deb http://repos.mesosphere.io/debian jessie main" | tee /etc/apt/sources.list.d/mesosphere.list && \
+    apt-get update && \
+    apt-get install --no-install-recommends -y --force-yes mesos=0.25.0-0.2.70.debian81 chronos
 
 # Add bootstrapping script
 ADD bootstrap.sh /bootstrap.sh

@@ -1,5 +1,5 @@
 # Chronos
-A Docker container for the latest Mesosphere Chronos version, together with a local binaries Mesos installation (currently 0.24.1 as of 2015-09-29).
+A Docker container for the latest Mesosphere Chronos version, together with a local binaries Mesos installation (currently 0.25.0 as of 2015-12-08).
 
 ## Usage
 This image assumes a running ZooKeeper instance somewhere on your network, as well as a running Mesos Master. If the ZooKeeper server resides on 192.168.0.100 (on port 2181), 

@@ -1,5 +1,5 @@
 FROM java:openjdk-8-jre
-MAINTAINER tobilg <fb.tools.github@gmail.com>
+MAINTAINER tobilg <tobilg@gmail.com>
 
 # packages
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF && \
